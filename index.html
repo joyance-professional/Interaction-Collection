@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Elegant Collection</title>
+    <style>
+        :root {
+            --bg-body: #080808;
+            --bg-card: #121212;
+            --text-main: #e0e0e0;
+            --text-muted: #555555;
+            --border: #222222;
+            --accent: #ffffff;
+            /* 核心緩動曲線：奢華且絲滑 */
+            --ease-elegant: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+            
+            --font-display: 'Times New Roman', Times, serif; /* 展示用襯線體 */
+            --font-ui: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* 介面用無襯線體 */
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-ui);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* ---------------- 頭部區域 ---------------- */
+        header {
+            padding: 100px 20px 60px;
+            text-align: center;
+            max-width: 700px;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-weight: 100;
+            font-size: 2.5rem;
+            margin: 0 0 20px 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        p.intro {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+
+        /* ---------------- 網格佈局 ---------------- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1400px;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 100px;
+        }
+
+        /* ---------------- 卡片樣式 ---------------- */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #444;
+        }
+
+        /* 效果預覽區 */
+        .preview {
+            height: 180px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            perspective: 1000px; /* 3D 透視深度 */
+            overflow: hidden; /* 防止特效溢出 */
+            background: radial-gradient(circle at center, #1a1a1a 0%, #121212 70%);
+        }
+
+        .demo-text {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--text-main);
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        /* 針對需要 span 拆分的通用樣式 */
+        .demo-text span {
+            display: inline-block;
+            transition: all 0.8s var(--ease-elegant);
+            transform-origin: center center;
+            backface-visibility: hidden;
+        }
+
+        /* 資訊區 */
+        .info {
+            margin-top: auto;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+
+        .info h3 {
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 5px 0;
+            color: var(--accent);
+        }
+
+        .info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0 0 15px 0;
+        }
+
+        /* 複製按鈕 */
+        .btn-copy {
+            background: transparent;
+            border: 1px solid #333;
+            color: #888;
+            padding: 10px 0;
+            width: 100%;
+            font-family: var(--font-ui);
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .btn-copy:hover {
+            border-color: #eee;
+            color: #eee;
+            background-color: #1a1a1a;
+        }
+
+        /* 隱藏的代碼區 */
+        textarea.code-source {
+            display: none;
+        }
+
+        /* =================================================================
+           EFFECTS CSS (這些樣式與下方複製的代碼一致)
+           ================================================================= */
+
+        /* 1. GRAVITY (Crumble) */
+        .effect-gravity:hover span {
+            opacity: 0;
+            filter: blur(4px);
+        }
+        .effect-gravity:hover span:nth-child(3n+1) { transform: translateY(40px) rotate(30deg); }
+        .effect-gravity:hover span:nth-child(3n+2) { transform: translateY(20px) rotate(-40deg); }
+        .effect-gravity:hover span:nth-child(3n+3) { transform: translateY(50px) rotate(10deg); }
+
+        /* 2. RIPPLES (Wave) */
+        .effect-ripples span { transition: transform 0.5s var(--ease-bounce); }
+        .effect-ripples:hover span { transform: translateY(-15px); color: #fff; }
+        .effect-ripples span:nth-child(1) { transition-delay: 0.00s; }
+        .effect-ripples span:nth-child(2) { transition-delay: 0.05s; }
+        .effect-ripples span:nth-child(3) { transition-delay: 0.10s; }
+        .effect-ripples span:nth-child(4) { transition-delay: 0.15s; }
+        .effect-ripples span:nth-child(5) { transition-delay: 0.20s; }
+        .effect-ripples span:nth-child(6) { transition-delay: 0.25s; }
+        .effect-ripples span:nth-child(7) { transition-delay: 0.30s; }
+
+        /* 3. EXPAND (Converge) */
+        .effect-expand span { transition: transform 1s var(--ease-elegant), opacity 1s ease, filter 1s ease; }
+        .effect-expand:hover span { opacity: 0; filter: blur(8px); }
+        .effect-expand:hover span:nth-child(1) { transform: translateX(-60px); }
+        .effect-expand:hover span:nth-child(2) { transform: translateX(-30px); }
+        .effect-expand:hover span:nth-child(3) { transform: translateX(-10px); }
+        .effect-expand:hover span:nth-child(4) { transform: translateX(10px); }
+        .effect-expand:hover span:nth-child(5) { transform: translateX(30px); }
+        .effect-expand:hover span:nth-child(6) { transform: translateX(60px); }
+
+        /* 4. UNSTABLE (Shiver) */
+        .effect-unstable:hover span { animation: shiverAnim 0.3s infinite; }
+        .effect-unstable:hover span:nth-child(odd) { animation-direction: alternate; }
+        .effect-unstable:hover span:nth-child(even) { animation-direction: alternate-reverse; }
+        @keyframes shiverAnim {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(1px, 1px); }
+            50% { transform: translate(-1px, 0); }
+            75% { transform: translate(0, -1px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* 5. EVAPORATE (Fog) */
+        .effect-evaporate span { transform-origin: bottom center; transition: transform 1s var(--ease-elegant), filter 1s ease, opacity 1s ease; }
+        .effect-evaporate:hover span { transform: scaleY(1.3) translateY(-20px); filter: blur(6px); opacity: 0; }
+        
+        /* 6. DRIFT (Ether) */
+        .effect-drift:hover span:nth-child(odd) { transform: translateY(-20px) rotate(-5deg); opacity: 0; filter: blur(4px); }
+        .effect-drift:hover span:nth-child(even) { transform: translateY(15px) rotate(5deg); opacity: 0; filter: blur(4px); }
+
+        /* 7. FREQUENCY (Mirage - SVG) */
+        .effect-frequency { filter: blur(0px); transition: filter 0.6s ease; }
+        .effect-frequency:hover { filter: url(#filter-mirage) blur(0.5px); }
+
+        /* 8. COMPRESSION (Squeeze) */
+        .effect-compression { display: inline-block; transition: transform 0.5s cubic-bezier(0.5, 0, 0.2, 1.5); }
+        .effect-compression:hover { transform: scaleX(1.2) scaleY(0.8); opacity: 0.9; }
+
+        /* 9. DISTORTION (Glitch) */
+        .effect-distortion { transition: text-shadow 0.4s ease; }
+        .effect-distortion:hover { text-shadow: -2px 0 0 rgba(255, 0, 0, 0.4), 2px 0 0 rgba(0, 255, 255, 0.4); }
+
+        /* 10. ESSENCE (Hollow) */
+        .effect-essence { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.6); transition: all 0.6s var(--ease-elegant); }
+        .effect-essence:hover { color: var(--text-main); -webkit-text-stroke: 1px transparent; }
+
+        /* 11. BREATH (Tracking) */
+        .effect-breath { transition: letter-spacing 0.8s var(--ease-elegant), opacity 0.8s ease; }
+        .effect-breath:hover { letter-spacing: 8px; opacity: 0.6; }
+
+    </style>
+</head>
+<body>
+
+    <!-- SVG Filters (隱藏，用於 Frequency 效果) -->
+    <svg style="position: absolute; width:0; height:0; pointer-events:none;">
+        <defs>
+            <filter id="filter-mirage">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.05" numOctaves="5" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="15" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+
+    <header>
+        <h1>Interaction Collection</h1>
+        <p class="intro">
+            物理質感 • 有機變異 • 粒子解構<br>
+            Physicality, Organic Mutation, and Deconstruction.
+        </p>
+    </header>
+
+    <div class="grid">
+
+        <!-- 1. GRAVITY -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-gravity split-text">Gravity</div></div>
+            <div class="info">
+                <h3>Gravity</h3>
+                <p>字母隨機下墜與旋轉</p>
+                <button class="btn-copy" onclick="copyCode('code-gravity', this)">Copy Code</button>
+            </div>
+            <textarea id="code-gravity" class="code-source">
+<div class="effect-gravity">
+  <span>T</span><span>e</span><span>x</span><span>t</span>
+</div>
+<style>
+.effect-gravity span { display: inline-block; transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.effect-gravity:hover span { opacity: 0; filter: blur(4px); }
+.effect-gravity:hover span:nth-child(3n+1) { transform: translateY(40px) rotate(30deg); }
+.effect-gravity:hover span:nth-child(3n+2) { transform: translateY(20px) rotate(-40deg); }
+.effect-gravity:hover span:nth-child(3n+3) { transform: translateY(50px) rotate(10deg); }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 2. RIPPLES -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-ripples split-text">Ripples</div></div>
+            <div class="info">
+                <h3>Ripples</h3>
+                <p>連續的波浪起伏動畫</p>
+                <button class="btn-copy" onclick="copyCode('code-ripples', this)">Copy Code</button>
+            </div>
+            <textarea id="code-ripples" class="code-source">
+<div class="effect-ripples">
+  <span>T</span><span>e</span><span>x</span><span>t</span>
+</div>
+<style>
+.effect-ripples span { display: inline-block; transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.effect-ripples:hover span { transform: translateY(-15px); }
+.effect-ripples span:nth-child(1) { transition-delay: 0s; }
+.effect-ripples span:nth-child(2) { transition-delay: 0.05s; }
+.effect-ripples span:nth-child(3) { transition-delay: 0.10s; }
+.effect-ripples span:nth-child(4) { transition-delay: 0.15s; }
+.effect-ripples span:nth-child(5) { transition-delay: 0.20s; }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 3. EXPAND -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-expand split-text">Expand</div></div>
+            <div class="info">
+                <h3>Expand</h3>
+                <p>向兩側高速分離</p>
+                <button class="btn-copy" onclick="copyCode('code-expand', this)">Copy Code</button>
+            </div>
+            <textarea id="code-expand" class="code-source">
+<div class="effect-expand">
+  <span>T</span><span>e</span><span>x</span><span>t</span>
+</div>
+<style>
+.effect-expand span { display: inline-block; transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease; }
+.effect-expand:hover span { opacity: 0; filter: blur(8px); }
+.effect-expand:hover span:nth-child(1) { transform: translateX(-50px); }
+.effect-expand:hover span:nth-child(2) { transform: translateX(-30px); }
+.effect-expand:hover span:nth-child(3) { transform: translateX(-10px); }
+.effect-expand:hover span:nth-child(4) { transform: translateX(10px); }
+.effect-expand:hover span:nth-child(5) { transform: translateX(30px); }
+.effect-expand:hover span:nth-child(6) { transform: translateX(50px); }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 4. UNSTABLE -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-unstable split-text">Unstable</div></div>
+            <div class="info">
+                <h3>Unstable</h3>
+                <p>微觀的高頻顫抖</p>
+                <button class="btn-copy" onclick="copyCode('code-unstable', this)">Copy Code</button>
+            </div>
+            <textarea id="code-unstable" class="code-source">
+<div class="effect-unstable">
+  <span>T</span><span>e</span><span>x</span><span>t</span>
+</div>
+<style>
+.effect-unstable span { display: inline-block; }
+.effect-unstable:hover span { animation: shiverAnim 0.3s infinite; }
+.effect-unstable:hover span:nth-child(odd) { animation-direction: alternate; }
+.effect-unstable:hover span:nth-child(even) { animation-direction: alternate-reverse; }
+@keyframes shiverAnim {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(1px, 1px); }
+  50% { transform: translate(-1px, 0); }
+  75% { transform: translate(0, -1px); }
+  100% { transform: translate(0, 0); }
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 5. EVAPORATE -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-evaporate split-text">Evaporate</div></div>
+            <div class="info">
+                <h3>Evaporate</h3>
+                <p>向上蒸發並模糊消散</p>
+                <button class="btn-copy" onclick="copyCode('code-evaporate', this)">Copy Code</button>
+            </div>
+            <textarea id="code-evaporate" class="code-source">
+<div class="effect-evaporate">
+  <span>T</span><span>e</span><span>x</span><span>t</span>
+</div>
+<style>
+.effect-evaporate span {
+  display: inline-block;
+  transform-origin: bottom center;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease, opacity 1s ease;
+}
+.effect-evaporate:hover span {
+  transform: scaleY(1.3) translateY(-20px);
+  filter: blur(6px);
+  opacity: 0;
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 6. DRIFT -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-drift split-text">Drift</div></div>
+            <div class="info">
+                <h3>Drift</h3>
+                <p>奇偶錯位的解構漂浮</p>
+                <button class="btn-copy" onclick="copyCode('code-drift', this)">Copy Code</button>
+            </div>
+            <textarea id="code-drift" class="code-source">
+<div class="effect-drift">
+  <span>D</span><span>r</span><span>i</span><span>f</span><span>t</span>
+</div>
+<style>
+.effect-drift span { display: inline-block; transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.effect-drift:hover span:nth-child(odd) { transform: translateY(-20px) rotate(-5deg); opacity: 0; filter: blur(4px); }
+.effect-drift:hover span:nth-child(even) { transform: translateY(15px) rotate(5deg); opacity: 0; filter: blur(4px); }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 7. FREQUENCY -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-frequency">Frequency</div></div>
+            <div class="info">
+                <h3>Frequency</h3>
+                <p>利用 SVG 模擬熱浪/液體擾動</p>
+                <button class="btn-copy" onclick="copyCode('code-frequency', this)">Copy Code</button>
+            </div>
+            <textarea id="code-frequency" class="code-source">
+<!-- HTML: Hidden SVG needed -->
+<svg style="position: absolute; width:0; height:0; pointer-events:none;">
+  <defs>
+    <filter id="filter-mirage">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01 0.05" numOctaves="5" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="15" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+</svg>
+
+<div class="effect-frequency">Frequency</div>
+<style>
+.effect-frequency { transition: filter 0.6s ease; }
+.effect-frequency:hover { filter: url(#filter-mirage) blur(0.5px); }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 8. COMPRESSION -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-compression">Compression</div></div>
+            <div class="info">
+                <h3>Compression</h3>
+                <p>有機的彈性擠壓</p>
+                <button class="btn-copy" onclick="copyCode('code-compression', this)">Copy Code</button>
+            </div>
+            <textarea id="code-compression" class="code-source">
+<div class="effect-compression">Compression</div>
+<style>
+.effect-compression {
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.5, 0, 0.2, 1.5);
+}
+.effect-compression:hover {
+  transform: scaleX(1.2) scaleY(0.8);
+  opacity: 0.9;
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 9. DISTORTION -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-distortion">Distortion</div></div>
+            <div class="info">
+                <h3>Distortion</h3>
+                <p>色散與信號故障</p>
+                <button class="btn-copy" onclick="copyCode('code-distortion', this)">Copy Code</button>
+            </div>
+            <textarea id="code-distortion" class="code-source">
+<div class="effect-distortion">Distortion</div>
+<style>
+.effect-distortion { transition: text-shadow 0.4s ease; }
+.effect-distortion:hover {
+  text-shadow: -2px 0 0 rgba(255, 0, 0, 0.4), 2px 0 0 rgba(0, 255, 255, 0.4);
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 10. ESSENCE -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-essence">Essence</div></div>
+            <div class="info">
+                <h3>Essence</h3>
+                <p>鏤空描邊轉實心填充</p>
+                <button class="btn-copy" onclick="copyCode('code-essence', this)">Copy Code</button>
+            </div>
+            <textarea id="code-essence" class="code-source">
+<div class="effect-essence">Essence</div>
+<style>
+.effect-essence {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.6);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.effect-essence:hover {
+  color: #fff;
+  -webkit-text-stroke: 1px transparent;
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 11. BREATH -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-breath">Breath</div></div>
+            <div class="info">
+                <h3>Breath</h3>
+                <p>空間感與呼吸節奏</p>
+                <button class="btn-copy" onclick="copyCode('code-breath', this)">Copy Code</button>
+            </div>
+            <textarea id="code-breath" class="code-source">
+<div class="effect-breath">Breath</div>
+<style>
+.effect-breath {
+  transition: letter-spacing 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+.effect-breath:hover {
+  letter-spacing: 8px;
+  opacity: 0.6;
+}
+</style>
+            </textarea>
+        </div>
+
+    </div>
+
+    <!-- 自動化腳本 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. 自動拆分文字為 SPAN
+            const splitTargets = document.querySelectorAll(".split-text");
+            splitTargets.forEach(target => {
+                const text = target.textContent;
+                // 防止重複拆分
+                if(!target.querySelector('span')) {
+                    target.innerHTML = text.split("").map(char => `<span>${char}</span>`).join("");
+                }
+            });
+
+            // 2. 複製代碼功能
+            window.copyCode = function(elementId, btn) {
+                const textarea = document.getElementById(elementId);
+                textarea.style.display = 'block'; // 暫時顯示以便選取
+                textarea.select();
+                textarea.setSelectionRange(0, 99999); // 手機兼容
+                
+                navigator.clipboard.writeText(textarea.value).then(() => {
+                    const originalText = btn.textContent;
+                    btn.textContent = "COPIED!";
+                    btn.style.borderColor = "#fff";
+                    btn.style.color = "#fff";
+                    
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.borderColor = "#333";
+                        btn.style.color = "#888";
+                    }, 2000);
+                });
+                textarea.style.display = 'none'; // 隱藏回去
+            };
+        });
+    </script>
+
+</body>
+</html>
