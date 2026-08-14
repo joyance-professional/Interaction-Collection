@@ -537,4 +537,491 @@
 
         <!-- 5. EVAPORATE -->
         <div class="card">
-            <div class="preview"><div class="demo-text effect-evaporate split-text">Evapora
+            <div class="preview"><div class="demo-text effect-evaporate split-text">Evaporate</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Evaporate</h3><span class="badge">Atmosphere</span></div>
+                <p>筆直向上蒸騰拉伸並消融於虛無</p>
+                <button class="btn-copy" onclick="copyCode('code-evaporate', this)">Copy Code</button>
+            </div>
+            <textarea id="code-evaporate" class="code-source">
+<div class="effect-evaporate">
+  <span>E</span><span>v</span><span>a</span><span>p</span><span>o</span><span>r</span><span>a</span><span>t</span><span>e</span>
+</div>
+<style>
+.effect-evaporate span {
+  display: inline-block;
+  transform-origin: bottom center;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease, opacity 1s ease;
+}
+.effect-evaporate:hover span {
+  transform: scaleY(1.4) translateY(-25px);
+  filter: blur(8px);
+  opacity: 0;
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 6. DRIFT -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-drift split-text">Drift</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Drift</h3><span class="badge">Deconstruct</span></div>
+                <p>奇偶錯位的解構式漂浮與淡出</p>
+                <button class="btn-copy" onclick="copyCode('code-drift', this)">Copy Code</button>
+            </div>
+            <textarea id="code-drift" class="code-source">
+<div class="effect-drift">
+  <span>D</span><span>r</span><span>i</span><span>f</span><span>t</span>
+</div>
+<style>
+.effect-drift span { display: inline-block; transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.effect-drift:hover span:nth-child(odd) { transform: translateY(-24px) rotate(-6deg); opacity: 0; filter: blur(4px); }
+.effect-drift:hover span:nth-child(even) { transform: translateY(18px) rotate(6deg); opacity: 0; filter: blur(4px); }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 7. FREQUENCY -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-frequency">Frequency</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Frequency</h3><span class="badge">SVG Filter</span></div>
+                <p>利用湍流算法模擬熱浪與光學折射</p>
+                <button class="btn-copy" onclick="copyCode('code-frequency', this)">Copy Code</button>
+            </div>
+            <textarea id="code-frequency" class="code-source">
+<svg style="position: absolute; width:0; height:0; pointer-events:none;">
+  <defs>
+    <filter id="filter-mirage">
+      <feTurbulence type="fractalNoise" baseFrequency="0.015 0.06" numOctaves="4" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+</svg>
+<div class="effect-frequency">Frequency</div>
+<style>
+.effect-frequency { transition: filter 0.6s ease; }
+.effect-frequency:hover { filter: url(#filter-mirage) blur(0.4px); }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 8. COMPRESSION -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-compression">Compression</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Compression</h3><span class="badge">Physics</span></div>
+                <p>超彈性擠壓與幾何膨脹形變</p>
+                <button class="btn-copy" onclick="copyCode('code-compression', this)">Copy Code</button>
+            </div>
+            <textarea id="code-compression" class="code-source">
+<div class="effect-compression">Compression</div>
+<style>
+.effect-compression {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+.effect-compression:hover { transform: scaleX(1.3) scaleY(0.7); }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 9. DISTORTION -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-distortion">Distortion</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Distortion</h3><span class="badge">Chromatic</span></div>
+                <p>RGB 色散與高頻信號分離故障</p>
+                <button class="btn-copy" onclick="copyCode('code-distortion', this)">Copy Code</button>
+            </div>
+            <textarea id="code-distortion" class="code-source">
+<div class="effect-distortion">Distortion</div>
+<style>
+.effect-distortion { transition: text-shadow 0.3s ease; }
+.effect-distortion:hover {
+  text-shadow: -3px 0 0 rgba(255, 30, 80, 0.7), 3px 0 0 rgba(0, 230, 255, 0.7);
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 10. ESSENCE -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-essence">Essence</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Essence</h3><span class="badge">Stroke</span></div>
+                <p>空靈鏤空描邊轉實體光暈填充</p>
+                <button class="btn-copy" onclick="copyCode('code-essence', this)">Copy Code</button>
+            </div>
+            <textarea id="code-essence" class="code-source">
+<div class="effect-essence">Essence</div>
+<style>
+.effect-essence {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.4);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.effect-essence:hover {
+  color: #fff;
+  -webkit-text-stroke: 1px transparent;
+  text-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 11. BREATH -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-breath">Breath</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Breath</h3><span class="badge">Spacing</span></div>
+                <p>字距擴散帶來的平靜呼吸節奏</p>
+                <button class="btn-copy" onclick="copyCode('code-breath', this)">Copy Code</button>
+            </div>
+            <textarea id="code-breath" class="code-source">
+<div class="effect-breath">Breath</div>
+<style>
+.effect-breath {
+  transition: letter-spacing 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease;
+}
+.effect-breath:hover {
+  letter-spacing: 12px;
+  opacity: 0.5;
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 12. REVOLUTION -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-revolution split-text">Revolution</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Revolution</h3><span class="badge">3D Space</span></div>
+                <p>沿 X 軸依序翻轉跌入 3D 空間深處</p>
+                <button class="btn-copy" onclick="copyCode('code-revolution', this)">Copy Code</button>
+            </div>
+            <textarea id="code-revolution" class="code-source">
+<div class="effect-revolution">
+  <span>R</span><span>e</span><span>v</span><span>o</span><span>l</span><span>u</span><span>t</span><span>i</span><span>o</span><span>n</span>
+</div>
+<style>
+.effect-revolution span { display: inline-block; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease; }
+.effect-revolution:hover span { transform: rotateX(90deg) translateY(-20px); opacity: 0; }
+.effect-revolution span:nth-child(1) { transition-delay: 0.00s; }
+.effect-revolution span:nth-child(2) { transition-delay: 0.04s; }
+.effect-revolution span:nth-child(3) { transition-delay: 0.08s; }
+.effect-revolution span:nth-child(4) { transition-delay: 0.12s; }
+.effect-revolution span:nth-child(5) { transition-delay: 0.16s; }
+.effect-revolution span:nth-child(6) { transition-delay: 0.20s; }
+.effect-revolution span:nth-child(7) { transition-delay: 0.24s; }
+.effect-revolution span:nth-child(8) { transition-delay: 0.28s; }
+.effect-revolution span:nth-child(9) { transition-delay: 0.32s; }
+.effect-revolution span:nth-child(10) { transition-delay: 0.36s; }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 13. AURORA -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-aurora">Aurora</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Aurora</h3><span class="badge">Specular</span></div>
+                <p>金屬液態流光的精密漸變掃描</p>
+                <button class="btn-copy" onclick="copyCode('code-aurora', this)">Copy Code</button>
+            </div>
+            <textarea id="code-aurora" class="code-source">
+<div class="effect-aurora">Aurora</div>
+<style>
+.effect-aurora {
+  background: linear-gradient(90deg, #fff 0%, #666 25%, #fff 50%, #666 75%, #fff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.effect-aurora:hover { background-position: -100% 0; }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 14. FRACTURE -->
+        <div class="card">
+            <div class="preview">
+                <div class="demo-text effect-fracture">
+                    <span class="text-layer layer-top">Fracture</span>
+                    <span class="text-layer layer-bottom">Fracture</span>
+                </div>
+            </div>
+            <div class="info">
+                <div class="info-header"><h3>Fracture</h3><span class="badge">Geometry</span></div>
+                <p>Clip-path 幾何對角切片錯位</p>
+                <button class="btn-copy" onclick="copyCode('code-fracture', this)">Copy Code</button>
+            </div>
+            <textarea id="code-fracture" class="code-source">
+<div class="effect-fracture">
+  <span class="text-layer layer-top">Fracture</span>
+  <span class="text-layer layer-bottom">Fracture</span>
+</div>
+<style>
+.effect-fracture { position: relative; display: inline-block; }
+.effect-fracture span.text-layer { display: block; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.effect-fracture .layer-top { clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); }
+.effect-fracture .layer-bottom {
+  position: absolute;
+  top: 0; left: 0;
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+.effect-fracture:hover .layer-top { transform: translateX(-8px) translateY(-2px); }
+.effect-fracture:hover .layer-bottom { transform: translateX(8px) translateY(2px); color: #888; }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 15. VORTEX -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-vortex split-text">Vortex</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Vortex</h3><span class="badge">Dimensional</span></div>
+                <p>字元旋轉匯聚吸入立體黑洞</p>
+                <button class="btn-copy" onclick="copyCode('code-vortex', this)">Copy Code</button>
+            </div>
+            <textarea id="code-vortex" class="code-source">
+<div class="effect-vortex">
+  <span>V</span><span>o</span><span>r</span><span>t</span><span>e</span><span>x</span>
+</div>
+<style>
+.effect-vortex span { display: inline-block; transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease; }
+.effect-vortex:hover span { transform: translateZ(-120px) rotateZ(180deg) scale(0.2); opacity: 0; }
+.effect-vortex span:nth-child(1) { transition-delay: 0.00s; }
+.effect-vortex span:nth-child(2) { transition-delay: 0.05s; }
+.effect-vortex span:nth-child(3) { transition-delay: 0.10s; }
+.effect-vortex span:nth-child(4) { transition-delay: 0.15s; }
+.effect-vortex span:nth-child(5) { transition-delay: 0.20s; }
+.effect-vortex span:nth-child(6) { transition-delay: 0.25s; }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 16. ECHO -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-echo">Echo</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Echo</h3><span class="badge">Optical</span></div>
+                <p>長曝光動態殘影與多重尾跡</p>
+                <button class="btn-copy" onclick="copyCode('code-echo', this)">Copy Code</button>
+            </div>
+            <textarea id="code-echo" class="code-source">
+<div class="effect-echo">Echo</div>
+<style>
+.effect-echo { transition: text-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.effect-echo:hover {
+  transform: translateX(10px);
+  text-shadow: 
+    -8px 0 0 rgba(255,255,255,0.4),
+    -16px 0 2px rgba(255,255,255,0.2),
+    -24px 0 6px rgba(255,255,255,0.1);
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 17. DEPTH -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-depth split-text">Depth</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Depth</h3><span class="badge">Camera</span></div>
+                <p>大光圈鏡頭景深變焦與中心對焦</p>
+                <button class="btn-copy" onclick="copyCode('code-depth', this)">Copy Code</button>
+            </div>
+            <textarea id="code-depth" class="code-source">
+<div class="effect-depth">
+  <span>D</span><span>e</span><span>p</span><span>t</span><span>h</span>
+</div>
+<style>
+.effect-depth span { display: inline-block; transition: filter 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease; }
+.effect-depth:hover span { filter: blur(6px); opacity: 0.3; transform: scale(0.9); }
+.effect-depth:hover span:nth-child(3),
+.effect-depth:hover span:nth-child(4) {
+  filter: blur(0px);
+  opacity: 1;
+  transform: scale(1.15);
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 18. IMPLOSION -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-implosion split-text">Implosion</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Implosion</h3><span class="badge">Magnetic</span></div>
+                <p>強力磁場核心坍縮與粒子收斂</p>
+                <button class="btn-copy" onclick="copyCode('code-implosion', this)">Copy Code</button>
+            </div>
+            <textarea id="code-implosion" class="code-source">
+<div class="effect-implosion">
+  <span>I</span><span>m</span><span>p</span><span>l</span><span>o</span><span>s</span><span>i</span><span>o</span><span>n</span>
+</div>
+<style>
+.effect-implosion span { display: inline-block; transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease; }
+.effect-implosion:hover span { opacity: 0; }
+.effect-implosion:hover span:nth-child(1) { transform: translateX(50px) scale(0.2); }
+.effect-implosion:hover span:nth-child(2) { transform: translateX(30px) scale(0.2); }
+.effect-implosion:hover span:nth-child(3) { transform: translateX(10px) scale(0.2); }
+.effect-implosion:hover span:nth-child(4) { transform: translateX(-10px) scale(0.2); }
+.effect-implosion:hover span:nth-child(5) { transform: translateX(-30px) scale(0.2); }
+.effect-implosion:hover span:nth-child(6) { transform: translateX(-50px) scale(0.2); }
+.effect-implosion:hover span:nth-child(7) { transform: translateX(-70px) scale(0.2); }
+.effect-implosion:hover span:nth-child(8) { transform: translateX(-90px) scale(0.2); }
+.effect-implosion:hover span:nth-child(9) { transform: translateX(-110px) scale(0.2); }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 19. LIQUEFY -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-liquefy split-text">Liquefy</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Liquefy</h3><span class="badge">Liquid</span></div>
+                <p>重力液態融化滴落與黏稠拉伸</p>
+                <button class="btn-copy" onclick="copyCode('code-liquefy', this)">Copy Code</button>
+            </div>
+            <textarea id="code-liquefy" class="code-source">
+<div class="effect-liquefy">
+  <span>L</span><span>i</span><span>q</span><span>u</span><span>e</span><span>f</span><span>y</span>
+</div>
+<style>
+.effect-liquefy span {
+  display: inline-block;
+  transform-origin: top center;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.9s ease, opacity 0.9s ease;
+}
+.effect-liquefy:hover span { transform: scaleY(2.2) translateY(25px); filter: blur(6px); opacity: 0; }
+.effect-liquefy span:nth-child(odd) { transition-duration: 0.8s; }
+.effect-liquefy span:nth-child(even) { transition-duration: 1.1s; }
+</style>
+            </textarea>
+        </div>
+
+        <!-- 20. SOLAR -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-solar">Solar</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Solar</h3><span class="badge">Eclipse</span></div>
+                <p>日全蝕剪影與背面強烈日冕光暈</p>
+                <button class="btn-copy" onclick="copyCode('code-solar', this)">Copy Code</button>
+            </div>
+            <textarea id="code-solar" class="code-source">
+<div class="effect-solar">Solar</div>
+<style>
+.effect-solar { transition: color 0.6s ease, text-shadow 0.8s ease; }
+.effect-solar:hover {
+  color: #0d0d0d;
+  text-shadow: 
+    0 0 10px rgba(255,255,255,0.8),
+    0 0 25px rgba(255,255,255,0.5),
+    0 0 45px rgba(255,255,255,0.3);
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 21. VERTIGO -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-vertigo">Vertigo</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Vertigo</h3><span class="badge">Perspective</span></div>
+                <p>希區考克式懸疑透視衝擊與暗影降臨</p>
+                <button class="btn-copy" onclick="copyCode('code-vertigo', this)">Copy Code</button>
+            </div>
+            <textarea id="code-vertigo" class="code-source">
+<div class="effect-vertigo">Vertigo</div>
+<style>
+.effect-vertigo {
+  display: inline-block;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease;
+}
+.effect-vertigo:hover {
+  transform: perspective(600px) translateZ(120px) rotateX(15deg);
+  letter-spacing: 4px;
+  filter: drop-shadow(0 20px 25px rgba(0,0,0,0.9));
+}
+</style>
+            </textarea>
+        </div>
+
+        <!-- 22. ANAMORPHIC -->
+        <div class="card">
+            <div class="preview"><div class="demo-text effect-flare">Anamorphic</div></div>
+            <div class="info">
+                <div class="info-header"><h3>Anamorphic</h3><span class="badge">Lens Flare</span></div>
+                <p>電影寬銀幕藍色水平變形鏡頭耀光</p>
+                <button class="btn-copy" onclick="copyCode('code-flare', this)">Copy Code</button>
+            </div>
+            <textarea id="code-flare" class="code-source">
+<div class="effect-flare">Anamorphic</div>
+<style>
+.effect-flare { position: relative; transition: all 0.5s ease; }
+.effect-flare::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0%; height: 1px;
+  background: #fff;
+  box-shadow: 0 0 12px 3px #fff, 0 0 30px 6px rgba(0, 150, 255, 0.8);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  pointer-events: none;
+}
+.effect-flare:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+.effect-flare:hover::after { width: 130%; opacity: 1; }
+</style>
+            </textarea>
+        </div>
+
+    </div>
+
+    <!-- 自動拆分字元與剪貼簿腳本 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. 自動拆分文字為 SPAN
+            const splitTargets = document.querySelectorAll(".split-text");
+            splitTargets.forEach(target => {
+                const text = target.textContent.trim();
+                if (!target.querySelector('span')) {
+                    target.innerHTML = text.split("").map(char => `<span>${char}</span>`).join("");
+                }
+            });
+
+            // 2. 複製代碼功能
+            window.copyCode = function(elementId, btn) {
+                const textarea = document.getElementById(elementId);
+                const code = textarea.value.trim();
+                
+                navigator.clipboard.writeText(code).then(() => {
+                    const originalText = btn.textContent;
+                    btn.textContent = "COPIED!";
+                    btn.style.borderColor = "#ffffff";
+                    btn.style.color = "#ffffff";
+                    btn.style.backgroundColor = "#222222";
+                    
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.borderColor = "#282828";
+                        btn.style.color = "#777777";
+                        btn.style.backgroundColor = "transparent";
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Copy failed: ', err);
+                });
+            };
+        });
+    </script>
+
+</body>
+</html>
