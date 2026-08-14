@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monochrome Kinetic Typography</title>
+    <title>Curated Kinetic Typography (8 Editions)</title>
     <style>
         :root {
             --bg-body: #080808;
@@ -17,7 +17,6 @@
             
             /* 精密動態緩動曲線 */
             --ease-elegant: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
             --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
             --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
             
@@ -200,10 +199,10 @@
         }
 
         /* =================================================================
-           純粹運動與形變動態樣式 (PURE MONOCHROME EFFECTS)
+           8 款保留動效樣式 (PURE MONOCHROME EFFECTS)
            ================================================================= */
 
-        /* 1. EXPAND (保留) */
+        /* 1. EXPAND */
         .effect-expand span { transition: transform 0.9s var(--ease-elegant), opacity 0.9s ease, filter 0.9s ease; }
         .effect-expand:hover span { opacity: 0; filter: blur(8px); }
         .effect-expand:hover span:nth-child(1) { transform: translateX(-70px); }
@@ -213,7 +212,7 @@
         .effect-expand:hover span:nth-child(5) { transform: translateX(40px); }
         .effect-expand:hover span:nth-child(6) { transform: translateX(70px); }
 
-        /* 2. UNSTABLE (保留) */
+        /* 2. UNSTABLE */
         .effect-unstable:hover span { animation: shiverAnim 0.25s infinite; }
         .effect-unstable:hover span:nth-child(odd) { animation-direction: alternate; }
         .effect-unstable:hover span:nth-child(even) { animation-direction: alternate-reverse; }
@@ -225,20 +224,20 @@
             100% { transform: translate(-1.5px, 1px); }
         }
 
-        /* 3. COMPRESSION (保留) */
+        /* 3. COMPRESSION */
         .effect-compression { display: inline-block; transition: transform 0.6s var(--ease-elastic); }
         .effect-compression:hover { transform: scaleX(1.3) scaleY(0.7); }
 
-        /* 4. DISTORTION (純單色信號幾何錯位) */
+        /* 4. DISTORTION */
         .effect-distortion span { transition: transform 0.2s ease, opacity 0.2s ease; }
         .effect-distortion:hover span:nth-child(odd) { transform: translateY(-4px) skewX(20deg); opacity: 0.6; }
         .effect-distortion:hover span:nth-child(even) { transform: translateY(4px) skewX(-20deg); opacity: 0.9; }
 
-        /* 5. ESSENCE (純單色描邊與填色) */
+        /* 5. ESSENCE */
         .effect-essence { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.4); transition: all 0.7s var(--ease-elegant); }
         .effect-essence:hover { color: var(--text-main); -webkit-text-stroke: 1px transparent; }
 
-        /* 6. REVOLUTION (保留) */
+        /* 6. REVOLUTION */
         .effect-revolution span { transition: transform 0.8s var(--ease-elegant), opacity 0.8s ease; }
         .effect-revolution:hover span { transform: rotateX(90deg) translateY(-20px); opacity: 0; }
         .effect-revolution span:nth-child(1) { transition-delay: 0.00s; }
@@ -252,104 +251,13 @@
         .effect-revolution span:nth-child(9) { transition-delay: 0.32s; }
         .effect-revolution span:nth-child(10) { transition-delay: 0.36s; }
 
-        /* 7. OBLIVION (保留) */
+        /* 7. OBLIVION */
         .effect-oblivion span { transition: transform 0.8s var(--ease-in-out), opacity 0.8s ease, filter 0.8s ease; }
         .effect-oblivion:hover span { transform: scale(0) rotate(-90deg); opacity: 0; filter: blur(8px); }
         .effect-oblivion span:nth-child(odd) { transition-delay: 0.08s; }
         .effect-oblivion span:nth-child(even) { transition-delay: 0.16s; }
 
-        /* --- 🌟 全新純文本本體動畫拓展 --- */
-
-        /* 8. LOUVER (百葉窗式 3D 下翻仰角) */
-        .effect-louver span {
-            transform-origin: bottom center;
-            transition: transform 0.7s var(--ease-elegant), opacity 0.7s ease;
-        }
-        .effect-louver:hover span {
-            transform: rotateX(-75deg) translateZ(10px);
-            opacity: 0.2;
-        }
-        .effect-louver span:nth-child(1) { transition-delay: 0.00s; }
-        .effect-louver span:nth-child(2) { transition-delay: 0.05s; }
-        .effect-louver span:nth-child(3) { transition-delay: 0.10s; }
-        .effect-louver span:nth-child(4) { transition-delay: 0.15s; }
-        .effect-louver span:nth-child(5) { transition-delay: 0.20s; }
-        .effect-louver span:nth-child(6) { transition-delay: 0.25s; }
-
-        /* 9. ACCORDION (手風琴 Y 軸折疊) */
-        .effect-accordion span { transition: transform 0.8s var(--ease-elegant), letter-spacing 0.8s var(--ease-elegant); }
-        .effect-accordion:hover span:nth-child(odd) { transform: rotateY(65deg) scaleX(0.7); }
-        .effect-accordion:hover span:nth-child(even) { transform: rotateY(-65deg) scaleX(0.7); }
-
-        /* 10. CRUSH (液壓垂直扁平化) */
-        .effect-crush { display: inline-block; transition: transform 0.5s var(--ease-elegant), opacity 0.5s ease; }
-        .effect-crush:hover { transform: scaleY(0.04) scaleX(1.3); opacity: 0.2; }
-
-        /* 11. HORIZON SLICE (純單色上下幾何撕裂分離) */
-        .effect-slice { position: relative; display: inline-block; }
-        .effect-slice span.slice-layer { display: block; transition: transform 0.7s var(--ease-elegant); }
-        .effect-slice .layer-top { clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); }
-        .effect-slice .layer-bot {
-            position: absolute;
-            top: 0; left: 0;
-            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
-        }
-        .effect-slice:hover .layer-top { transform: translateY(-16px); }
-        .effect-slice:hover .layer-bot { transform: translateY(16px); opacity: 0.4; }
-
-        /* 12. VORTEX-ASCENT (龍捲螺旋上升) */
-        .effect-ascent span { transition: transform 0.9s var(--ease-elegant), opacity 0.9s ease; }
-        .effect-ascent:hover span { transform: translateY(-60px) rotateY(180deg) translateZ(30px); opacity: 0; }
-        .effect-ascent span:nth-child(1) { transition-delay: 0.00s; }
-        .effect-ascent span:nth-child(2) { transition-delay: 0.04s; }
-        .effect-ascent span:nth-child(3) { transition-delay: 0.08s; }
-        .effect-ascent span:nth-child(4) { transition-delay: 0.12s; }
-        .effect-ascent span:nth-child(5) { transition-delay: 0.16s; }
-        .effect-ascent span:nth-child(6) { transition-delay: 0.20s; }
-
-        /* 13. TENSION (兩端固定，中間彈性回拉) */
-        .effect-tension span { transition: transform 0.6s var(--ease-bounce); }
-        .effect-tension:hover span:nth-child(1) { transform: translateX(0); }
-        .effect-tension:hover span:nth-child(2) { transform: translateY(-15px) scaleY(1.1); }
-        .effect-tension:hover span:nth-child(3) { transform: translateY(-25px) scaleY(1.2); }
-        .effect-tension:hover span:nth-child(4) { transform: translateY(-30px) scaleY(1.3); }
-        .effect-tension:hover span:nth-child(5) { transform: translateY(-25px) scaleY(1.2); }
-        .effect-tension:hover span:nth-child(6) { transform: translateY(-15px) scaleY(1.1); }
-        .effect-tension:hover span:nth-child(7) { transform: translateX(0); }
-
-        /* 14. PENDULUM (鐘擺單字懸吊晃盪) */
-        .effect-pendulum span { transform-origin: top center; transition: transform 0.7s var(--ease-elastic); }
-        .effect-pendulum:hover span:nth-child(odd) { transform: rotate(35deg); }
-        .effect-pendulum:hover span:nth-child(even) { transform: rotate(-35deg); }
-
-        /* 15. SHEAR-RUN (極速側向剪切動量) */
-        .effect-shearrun { display: inline-block; transition: transform 0.6s var(--ease-elegant); }
-        .effect-shearrun:hover { transform: skewX(-32deg) scaleX(1.15) translateX(10px); }
-
-        /* 16. SCATTER-3D (無重力向後漂散) */
-        .effect-scatter span { transition: transform 0.8s var(--ease-elegant), opacity 0.8s ease, filter 0.8s ease; }
-        .effect-scatter:hover span { opacity: 0; filter: blur(6px); }
-        .effect-scatter:hover span:nth-child(1) { transform: translate3d(-30px, -20px, -100px) rotate(-20deg); }
-        .effect-scatter:hover span:nth-child(2) { transform: translate3d(20px, -40px, -60px) rotate(15deg); }
-        .effect-scatter:hover span:nth-child(3) { transform: translate3d(-15px, 30px, -80px) rotate(-30deg); }
-        .effect-scatter:hover span:nth-child(4) { transform: translate3d(25px, 20px, -120px) rotate(25deg); }
-        .effect-scatter:hover span:nth-child(5) { transform: translate3d(-20px, -30px, -50px) rotate(-10deg); }
-        .effect-scatter:hover span:nth-child(6) { transform: translate3d(30px, -10px, -90px) rotate(18deg); }
-        .effect-scatter:hover span:nth-child(7) { transform: translate3d(0px, 40px, -110px) rotate(-15deg); }
-
-        /* 17. SINKHOLE (字元自左向右階梯沉降) */
-        .effect-sinkhole span { transition: transform 0.7s var(--ease-elegant), opacity 0.7s ease; }
-        .effect-sinkhole:hover span { transform: translateY(40px); opacity: 0; }
-        .effect-sinkhole span:nth-child(1) { transition-delay: 0.00s; }
-        .effect-sinkhole span:nth-child(2) { transition-delay: 0.04s; }
-        .effect-sinkhole span:nth-child(3) { transition-delay: 0.08s; }
-        .effect-sinkhole span:nth-child(4) { transition-delay: 0.12s; }
-        .effect-sinkhole span:nth-child(5) { transition-delay: 0.16s; }
-        .effect-sinkhole span:nth-child(6) { transition-delay: 0.20s; }
-        .effect-sinkhole span:nth-child(7) { transition-delay: 0.24s; }
-        .effect-sinkhole span:nth-child(8) { transition-delay: 0.28s; }
-
-        /* 18. MONO-WARP (鏡頭縱深拉伸放大) */
+        /* 8. WARP */
         .effect-warp span { transition: transform 0.7s var(--ease-elegant), opacity 0.7s ease, filter 0.7s ease; }
         .effect-warp:hover span { transform: translateZ(100px) scale(1.4); opacity: 0; filter: blur(8px); }
         .effect-warp span:nth-child(1) { transition-delay: 0.00s; }
@@ -362,11 +270,11 @@
 <body>
 
     <header>
-        <span class="header-tag">Kinetic Mechanics</span>
+        <span class="header-tag">The Curated 8</span>
         <h1>Form & Motion</h1>
         <p class="intro">
-            專注於字形形變、空間維度、物理動量與結構解構<br>
-            A pure monochrome typographic interaction gallery focusing strictly on structural kinetics.
+            專注於字形形變、空間維度與物理動量的黑白極簡動態<br>
+            A refined collection of 8 pure monochrome typographic micro-interactions.
         </p>
     </header>
 
@@ -543,264 +451,7 @@
             </textarea>
         </div>
 
-        <!-- 8. LOUVER -->
-        <div class="card">
-            <div class="preview"><div class="demo-text effect-louver split-text">Louver</div></div>
-            <div class="info">
-                <div class="info-header"><h3>Louver</h3><span class="badge">Perspective</span></div>
-                <p>百葉窗葉片式向底邊軸心仰角倒折</p>
-                <button class="btn-copy" onclick="copyCode('code-louver', this)">Copy Code</button>
-            </div>
-            <textarea id="code-louver" class="code-source">
-<div class="effect-louver">
-  <span>L</span><span>o</span><span>u</span><span>v</span><span>e</span><span>r</span>
-</div>
-<style>
-.effect-louver span {
-  display: inline-block;
-  transform-origin: bottom center;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease;
-}
-.effect-louver:hover span {
-  transform: rotateX(-75deg) translateZ(10px);
-  opacity: 0.2;
-}
-.effect-louver span:nth-child(1) { transition-delay: 0.00s; }
-.effect-louver span:nth-child(2) { transition-delay: 0.05s; }
-.effect-louver span:nth-child(3) { transition-delay: 0.10s; }
-.effect-louver span:nth-child(4) { transition-delay: 0.15s; }
-.effect-louver span:nth-child(5) { transition-delay: 0.20s; }
-.effect-louver span:nth-child(6) { transition-delay: 0.25s; }
-</style>
-            </textarea>
-        </div>
-
-        <!-- 9. ACCORDION -->
-        <div class="card">
-            <div class="preview"><div class="demo-text effect-accordion split-text">Accordion</div></div>
-            <div class="info">
-                <div class="info-header"><h3>Accordion</h3><span class="badge">Fold</span></div>
-                <p>字元如手風琴風箱般沿 Y 軸摺疊夾緊</p>
-                <button class="btn-copy" onclick="copyCode('code-accordion', this)">Copy Code</button>
-            </div>
-            <textarea id="code-accordion" class="code-source">
-<div class="effect-accordion">
-  <span>A</span><span>c</span><span>c</span><span>o</span><span>r</span><span>d</span><span>i</span><span>o</span><span>n</span>
-</div>
-<style>
-.effect-accordion span { display: inline-block; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-.effect-accordion:hover span:nth-child(odd) { transform: rotateY(65deg) scaleX(0.7); }
-.effect-accordion:hover span:nth-child(even) { transform: rotateY(-65deg) scaleX(0.7); }
-</style>
-            </textarea>
-        </div>
-
-        <!-- 10. CRUSH -->
-        <div class="card">
-            <div class="preview"><div class="demo-text effect-crush">Crush</div></div>
-            <div class="info">
-                <div class="info-header"><h3>Crush</h3><span class="badge">Pressure</span></div>
-                <p>遭受垂直液壓機重壓變為極窄縫隙</p>
-                <button class="btn-copy" onclick="copyCode('code-crush', this)">Copy Code</button>
-            </div>
-            <textarea id="code-crush" class="code-source">
-<div class="effect-crush">Crush</div>
-<style>
-.effect-crush {
-  display: inline-block;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
-}
-.effect-crush:hover {
-  transform: scaleY(0.04) scaleX(1.3);
-  opacity: 0.2;
-}
-</style>
-            </textarea>
-        </div>
-
-        <!-- 11. HORIZON SLICE -->
-        <div class="card">
-            <div class="preview">
-                <div class="demo-text effect-slice">
-                    <span class="slice-layer layer-top">Horizon</span>
-                    <span class="slice-layer layer-bot">Horizon</span>
-                </div>
-            </div>
-            <div class="info">
-                <div class="info-header"><h3>Horizon Slice</h3><span class="badge">Geometry</span></div>
-                <p>幾何裁切將上下半截文字反向平移分離</p>
-                <button class="btn-copy" onclick="copyCode('code-slice', this)">Copy Code</button>
-            </div>
-            <textarea id="code-slice" class="code-source">
-<div class="effect-slice">
-  <span class="slice-layer layer-top">Horizon</span>
-  <span class="slice-layer layer-bot">Horizon</span>
-</div>
-<style>
-.effect-slice { position: relative; display: inline-block; }
-.effect-slice span.slice-layer { display: block; transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-.effect-slice .layer-top { clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); }
-.effect-slice .layer-bot {
-  position: absolute;
-  top: 0; left: 0;
-  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
-}
-.effect-slice:hover .layer-top { transform: translateY(-16px); }
-.effect-slice:hover .layer-bot { transform: translateY(16px); opacity: 0.4; }
-</style>
-            </textarea>
-        </div>
-
-        <!-- 12. VORTEX ASCENT -->
-        <div class="card">
-            <div class="preview"><div class="demo-text effect-ascent split-text">Ascent</div></div>
-            <div class="info">
-                <div class="info-header"><h3>Vortex Ascent</h3><span class="badge">Helical</span></div>
-                <p>字元呈螺旋上升軌道逐一盤旋昇華</p>
-                <button class="btn-copy" onclick="copyCode('code-ascent', this)">Copy Code</button>
-            </div>
-            <textarea id="code-ascent" class="code-source">
-<div class="effect-ascent">
-  <span>A</span><span>s</span><span>c</span><span>e</span><span>n</span><span>t</span>
-</div>
-<style>
-.effect-ascent span { display: inline-block; transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease; }
-.effect-ascent:hover span { transform: translateY(-60px) rotateY(180deg) translateZ(30px); opacity: 0; }
-.effect-ascent span:nth-child(1) { transition-delay: 0.00s; }
-.effect-ascent span:nth-child(2) { transition-delay: 0.04s; }
-.effect-ascent span:nth-child(3) { transition-delay: 0.08s; }
-.effect-ascent span:nth-child(4) { transition-delay: 0.12s; }
-.effect-ascent span:nth-child(5) { transition-delay: 0.16s; }
-.effect-ascent span:nth-child(6) { transition-delay: 0.20s; }
-</style>
-            </textarea>
-        </div>
-
-        <!-- 13. TENSION -->
-        <div class="card">
-            <div class="preview"><div class="demo-text effect-tension split-text">Tension</div></div>
-            <div class="info">
-                <div class="info-header"><h3>Tension</h3><span class="badge">Kinematic</span></div>
-                <p>首尾錨定，中間字母如弓弦般向上拉滿</p>
-                <button class="btn-copy" onclick="copyCode('code-tension', this)">Copy Code</button>
-            </div>
-            <textarea id="code-tension" class="code-source">
-<div class="effect-tension">
-  <span>T</span><span>e</span><span>n</span><span>s</span><span>i</span><span>o</span><span>n</span>
-</div>
-<style>
-.effect-tension span { display: inline-block; transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
-.effect-tension:hover span:nth-child(1) { transform: translateX(0); }
-.effect-tension:hover span:nth-child(2) { transform: translateY(-15px) scaleY(1.1); }
-.effect-tension:hover span:nth-child(3) { transform: translateY(-25px) scaleY(1.2); }
-.effect-tension:hover span:nth-child(4) { transform: translateY(-30px) scaleY(1.3); }
-.effect-tension:hover span:nth-child(5) { transform: translateY(-25px) scaleY(1.2); }
-.effect-tension:hover span:nth-child(6) { transform: translateY(-15px) scaleY(1.1); }
-.effect-tension:hover span:nth-child(7) { transform: translateX(0); }
-</style>
-            </textarea>
-        </div>
-
-        <!-- 14. PENDULUM -->
-        <div class="card">
-            <div class="preview"><div class="demo-text effect-pendulum split-text">Balance</div></div>
-            <div class="info">
-                <div class="info-header"><h3>Pendulum</h3><span class="badge">Oscillation</span></div>
-                <p>以頂部為支點的單字擺鐘交錯晃動</p>
-                <button class="btn-copy" onclick="copyCode('code-pendulum', this)">Copy Code</button>
-            </div>
-            <textarea id="code-pendulum" class="code-source">
-<div class="effect-pendulum">
-  <span>B</span><span>a</span><span>l</span><span>a</span><span>n</span><span>c</span><span>e</span>
-</div>
-<style>
-.effect-pendulum span {
-  display: inline-block;
-  transform-origin: top center;
-  transition: transform 0.7s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-}
-.effect-pendulum:hover span:nth-child(odd) { transform: rotate(35deg); }
-.effect-pendulum:hover span:nth-child(even) { transform: rotate(-35deg); }
-</style>
-            </textarea>
-        </div>
-
-        <!-- 15. SHEAR RUN -->
-        <div class="card">
-            <div class="preview"><div class="demo-text effect-shearrun">Shear Run</div></div>
-            <div class="info">
-                <div class="info-header"><h3>Shear Run</h3><span class="badge">Velocity</span></div>
-                <p>強烈傾斜側移帶來的極速衝刺感</p>
-                <button class="btn-copy" onclick="copyCode('code-shearrun', this)">Copy Code</button>
-            </div>
-            <textarea id="code-shearrun" class="code-source">
-<div class="effect-shearrun">Shear Run</div>
-<style>
-.effect-shearrun {
-  display: inline-block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.effect-shearrun:hover {
-  transform: skewX(-32deg) scaleX(1.15) translateX(10px);
-}
-</style>
-            </textarea>
-        </div>
-
-        <!-- 16. SCATTER 3D -->
-        <div class="card">
-            <div class="preview"><div class="demo-text effect-scatter split-text">Scatter</div></div>
-            <div class="info">
-                <div class="info-header"><h3>Scatter 3D</h3><span class="badge">Zero-G</span></div>
-                <p>失去重力約束向深層空間亂數漂移散開</p>
-                <button class="btn-copy" onclick="copyCode('code-scatter', this)">Copy Code</button>
-            </div>
-            <textarea id="code-scatter" class="code-source">
-<div class="effect-scatter">
-  <span>S</span><span>c</span><span>a</span><span>t</span><span>t</span><span>e</span><span>r</span>
-</div>
-<style>
-.effect-scatter span { display: inline-block; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, filter 0.8s ease; }
-.effect-scatter:hover span { opacity: 0; filter: blur(6px); }
-.effect-scatter:hover span:nth-child(1) { transform: translate3d(-30px, -20px, -100px) rotate(-20deg); }
-.effect-scatter:hover span:nth-child(2) { transform: translate3d(20px, -40px, -60px) rotate(15deg); }
-.effect-scatter:hover span:nth-child(3) { transform: translate3d(-15px, 30px, -80px) rotate(-30deg); }
-.effect-scatter:hover span:nth-child(4) { transform: translate3d(25px, 20px, -120px) rotate(25deg); }
-.effect-scatter:hover span:nth-child(5) { transform: translate3d(-20px, -30px, -50px) rotate(-10deg); }
-.effect-scatter:hover span:nth-child(6) { transform: translate3d(30px, -10px, -90px) rotate(18deg); }
-.effect-scatter:hover span:nth-child(7) { transform: translate3d(0px, 40px, -110px) rotate(-15deg); }
-</style>
-            </textarea>
-        </div>
-
-        <!-- 17. SINKHOLE -->
-        <div class="card">
-            <div class="preview"><div class="demo-text effect-sinkhole split-text">Sinkhole</div></div>
-            <div class="info">
-                <div class="info-header"><h3>Sinkhole</h3><span class="badge">Cascade</span></div>
-                <p>如地陷一般由左至右逐字墜落下沉</p>
-                <button class="btn-copy" onclick="copyCode('code-sinkhole', this)">Copy Code</button>
-            </div>
-            <textarea id="code-sinkhole" class="code-source">
-<div class="effect-sinkhole">
-  <span>S</span><span>i</span><span>n</span><span>k</span><span>h</span><span>o</span><span>l</span><span>e</span>
-</div>
-<style>
-.effect-sinkhole span { display: inline-block; transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease; }
-.effect-sinkhole:hover span { transform: translateY(40px); opacity: 0; }
-.effect-sinkhole span:nth-child(1) { transition-delay: 0.00s; }
-.effect-sinkhole span:nth-child(2) { transition-delay: 0.04s; }
-.effect-sinkhole span:nth-child(3) { transition-delay: 0.08s; }
-.effect-sinkhole span:nth-child(4) { transition-delay: 0.12s; }
-.effect-sinkhole span:nth-child(5) { transition-delay: 0.16s; }
-.effect-sinkhole span:nth-child(6) { transition-delay: 0.20s; }
-.effect-sinkhole span:nth-child(7) { transition-delay: 0.24s; }
-.effect-sinkhole span:nth-child(8) { transition-delay: 0.28s; }
-</style>
-            </textarea>
-        </div>
-
-        <!-- 18. MONO WARP -->
+        <!-- 8. WARP -->
         <div class="card">
             <div class="preview"><div class="demo-text effect-warp split-text">Warp</div></div>
             <div class="info">
